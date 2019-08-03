@@ -1,0 +1,21 @@
+{
+  "name": "lfabot-worker",
+  "version": "1.0.0",
+  "description": "Command Worker for LFABot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@spectacles/brokers": "^0.7.1",
+    "@spectacles/gateway": "^0.12.1",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^12.6.9",
+    "tslint-config-prettier": "^1.18.0"
+  }
+}
