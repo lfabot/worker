@@ -10,7 +10,12 @@
   "license": "MIT",
   "dependencies": {
     "@spectacles/brokers": "^0.7.1",
+    "@spectacles/cache": "^0.3.12",
     "@spectacles/gateway": "^0.12.1",
+    "collection": "https://github.com/discordjs/collection",
+    "erlpack": "discordapp/erlpack",
+    "ioredis": "^4.14.0",
+    "pg": "^7.12.0",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
   },

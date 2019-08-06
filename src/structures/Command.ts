@@ -1,3 +1,5 @@
+import LFAClient from "./Client";
+
 export abstract class RegisteredCommand implements Command {
     public aliases?: string[];
     public description?: string;
@@ -6,7 +8,7 @@ export abstract class RegisteredCommand implements Command {
     public requiredRoles?: string[];
     public usage?: string;
 
-    public constructor(info: Command) {
+    public constructor(public readonly client: LFAClient, info: Command) {
         this.aliases = info.aliases;
         this.description = info.description;
         this.name = info.name;
@@ -14,7 +16,10 @@ export abstract class RegisteredCommand implements Command {
         this.usage = info.usage;
     }
 
-    public abstract checkPermission();
+    public checkPermission() {
+        return true;
+    }
+
     public abstract async execute();
 }
 
@@ -26,4 +31,3 @@ export interface Command {
     requiredRoles?: string[];
     usage?: string;
 }
-

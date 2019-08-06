@@ -31,7 +31,6 @@
         "call-signature",
         "parameter",
         "property-declaration",
-        "variable-declaration",
         "member-variable-declaration"
       ],
       "typedef-whitespace": [
@@ -186,7 +185,6 @@
         "check-type-operator",
         "check-rest-spread"
       ]
-    },
-    "extends": ["tslint-config-prettier"]
+    }
   }
   
