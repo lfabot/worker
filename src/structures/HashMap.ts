@@ -1,12 +1,12 @@
 import Collection from "collection";
 import LFAClient from "./Client";
-import { Command } from "./Command";
+import { RegisteredCommand } from "./Command";
 
-export default class HashMap extends Collection<string, Command> {
+export default class HashMap extends Collection<string, RegisteredCommand> {
     public static get [Symbol.species]() {
       return Collection;
     }
-    public aliases: Collection<string, Command>;
+    public aliases: Collection<string, RegisteredCommand>;
     public cooldowns: Collection<string, Collection<string, number>>;
 
     public constructor(client: LFAClient) {
@@ -23,7 +23,7 @@ export default class HashMap extends Collection<string, Command> {
     }
 
     public delete(name: string): boolean {
-      const command: Command = this.get(name);
+      const command: RegisteredCommand = this.get(name);
       if (!command) {
         return false;
       }
@@ -37,7 +37,7 @@ export default class HashMap extends Collection<string, Command> {
       return true;
     }
 
-    public get(name: string): Command {
+    public get(name: string): RegisteredCommand {
       return super.get(name) || this.aliases.get(name);
     }
 
@@ -45,7 +45,7 @@ export default class HashMap extends Collection<string, Command> {
       return super.has(name) || this.aliases.has(name);
     }
 
-    public add(command: Command): Command {
+    public add(command: RegisteredCommand): RegisteredCommand {
       super.set(command.name, command);
       if (command.aliases && command.aliases.length) {
         for (const alias of command.aliases) {

@@ -1,18 +1,20 @@
 import { Amqp } from "@spectacles/brokers";
 import { Client as Cache } from "@spectacles/cache";
+import { QueryObject } from "@spectacles/rest/typings/structures/Query";
 import { Pool } from "pg";
 import HashMap from "./HashMap";
 
 export default class LFAClient {
     public brandColor: number;
-    public prefix: string;
+    public commands: HashMap;
     public packages: string[];
+    public prefix: string;
 
     public constructor(
         public readonly broker: Amqp,
         public readonly cache: Cache,
-        public commands: HashMap,
-        public readonly pg: Pool
+        public readonly pg: Pool,
+        public readonly rest: QueryObject
     ) {
 
     }

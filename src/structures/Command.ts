@@ -1,3 +1,4 @@
+import { Message } from "@spectacles/types";
 import LFAClient from "./Client";
 
 export abstract class RegisteredCommand implements Command {
@@ -16,11 +17,11 @@ export abstract class RegisteredCommand implements Command {
         this.usage = info.usage;
     }
 
-    public checkPermission() {
+    public checkPermission(message: Message) {
         return true;
     }
 
-    public abstract async execute();
+    public abstract async execute(message: Message);
 }
 
 export interface Command {
